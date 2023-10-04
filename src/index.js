@@ -31,9 +31,11 @@ const App = ()=> {
       catch(ex){
         if(ex.response.status === 401){
           window.localStorage.removeItem('token');
+
         }
       }
     }
+    alert("Incorrect username or password try again.")
   }
 
   useEffect(()=> {
