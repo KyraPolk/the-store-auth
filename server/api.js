@@ -49,7 +49,7 @@ app.post('/login', async(req, res, next)=> {
 app.get('/me', isLoggedIn, (req, res, next)=> {
   try {
     res.send(req.user);
-  } 
+  }
   catch(ex){
     next(ex);
   }
@@ -94,7 +94,7 @@ app.get('/lineItems', isLoggedIn, async(req, res, next)=> {
 
 app.post('/lineItems', isLoggedIn, async(req, res, next)=> {
   try {
-    //TODO make sure the order's user_id is req.user.id 
+    //TODO make sure the order's user_id is req.user.id
     res.send(await createLineItem(req.body));
   }
   catch(ex){
@@ -108,7 +108,7 @@ app.put('/products/:id', isLoggedIn, isAdmin, (req, res, next)=> {
 
 app.put('/lineItems/:id', isLoggedIn, async(req, res, next)=> {
   try {
-    //TODO make sure the order's user_id is req.user.id 
+    //TODO make sure the order's user_id is req.user.id
     res.send(await updateLineItem({...req.body, id: req.params.id}));
   }
   catch(ex){
@@ -118,7 +118,7 @@ app.put('/lineItems/:id', isLoggedIn, async(req, res, next)=> {
 
 app.delete('/lineItems/:id', isLoggedIn, async(req, res, next)=> {
   try {
-    //TODO make sure the order's user_id is req.user.id 
+    //TODO make sure the order's user_id is req.user.id
     await deleteLineItem({ id: req.params.id });
     res.sendStatus(204);
   }
